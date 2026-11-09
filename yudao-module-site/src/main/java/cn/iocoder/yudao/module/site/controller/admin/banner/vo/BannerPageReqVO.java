@@ -1,0 +1,35 @@
+package cn.iocoder.yudao.module.site.controller.admin.banner.vo;
+
+import cn.iocoder.yudao.framework.common.pojo.PageParam;
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDateTime;
+
+import static cn.iocoder.yudao.framework.common.util.date.DateUtils.FORMAT_YEAR_MONTH_DAY_HOUR_MINUTE_SECOND;
+
+/**
+ * Banner 分页查询 Request VO
+ *
+ * @author 联纵宸捷
+ */
+@Data
+@EqualsAndHashCode(callSuper = true)
+@ToString(callSuper = true)
+@Schema(description = "Banner 分页查询 Request VO")
+public class BannerPageReqVO extends PageParam {
+
+    @Schema(description = "主标题", example = "首页Banner")
+    private String title;
+
+    @Schema(description = "状态", example = "1")
+    private Integer status;
+
+    @DateTimeFormat(pattern = FORMAT_YEAR_MONTH_DAY_HOUR_MINUTE_SECOND)
+    @Schema(description = "创建时间")
+    private LocalDateTime[] createTime;
+
+}
